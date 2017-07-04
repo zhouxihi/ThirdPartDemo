@@ -17,10 +17,10 @@ static char UserInfoKey;
 
 #pragma mark - Configure UMessage SDK
 
-- (void)configureUMessageWithLaunchOptions:(NSDictionary *)launchOptions {
+- (void)configureUMessageWithAppKey:(NSString *)appKey launchOptions:(NSDictionary *)launchOptions {
     
     // 设置AppKey & LaunchOptions
-    [UMessage startWithAppkey:UMessageAppKey launchOptions:launchOptions];
+    [UMessage startWithAppkey:appKey launchOptions:launchOptions];
     
     // 注册
     [UMessage registerForRemoteNotifications];
@@ -35,7 +35,7 @@ static char UserInfoKey;
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         center.delegate                  = self;
         UNAuthorizationOptions types10   = \
-            UNAuthorizationOptionBadge | UNAuthorizationOptionAlert | UNAuthorizationOptionSound;
+        UNAuthorizationOptionBadge | UNAuthorizationOptionAlert | UNAuthorizationOptionSound;
         
         [center requestAuthorizationWithOptions:types10 completionHandler:^(BOOL granted, NSError * _Nullable error) {
             

@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     
     // 配置UMessage
-    [self configureUMessageWithLaunchOptions:launchOptions];
+    [self configureUMessageWithAppKey:UMessageAppKey launchOptions:launchOptions];
     
     return YES;
 }
