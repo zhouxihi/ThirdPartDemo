@@ -14,12 +14,19 @@
 @property (nonatomic, strong) NSDictionary *userInfo;
 
 /**
+ 配置友盟推送 (推荐方法, 统一在AppKey.h中配置key)
+
+ @param launchOptions App launchOptions
+ */
+- (void)zx_configureUMessageWithLaunchOptions:(NSDictionary *)launchOptions;
+
+/**
  配置友盟推送
 
  @param appKey 友盟appkey
  @param launchOptions App launchOptions
  */
-- (void)configureUMessageWithAppKey:(NSString *)appKey launchOptions:(NSDictionary *)launchOptions;
+- (void)zx_configureUMessageWithAppKey:(NSString *)appKey launchOptions:(NSDictionary *)launchOptions;
 
 /**
  给类别属性赋值

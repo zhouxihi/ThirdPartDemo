@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AppDelegate+UMengPush.h"
+#import "AppDelegate+UMSocial.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +21,11 @@
     // Override point for customization after application launch.
     
     // 配置UMessage
-    [self configureUMessageWithAppKey:UMessageAppKey launchOptions:launchOptions];
+    [self zx_configureUMessageWithLaunchOptions:launchOptions];
+    
+    // 配置UMSocial
+    [self zx_configureUMSocialSDK];
+    
     
     return YES;
 }

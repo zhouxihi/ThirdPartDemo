@@ -8,6 +8,7 @@
 
 #import "AppDelegate+UMengPush.h"
 #import "UMessage.h"
+#import "AppKey.h"
 
 #import <objc/runtime.h>
 
@@ -17,7 +18,23 @@ static char UserInfoKey;
 
 #pragma mark - Configure UMessage SDK
 
-- (void)configureUMessageWithAppKey:(NSString *)appKey launchOptions:(NSDictionary *)launchOptions {
+/**
+ 配置友盟推送 (推荐方法, 统一在AppKey.h中配置key)
+ 
+ @param launchOptions App launchOptions
+ */
+- (void)zx_configureUMessageWithLaunchOptions:(NSDictionary *)launchOptions {
+    
+    [self zx_configureUMessageWithAppKey:UMessageAppKey launchOptions:launchOptions];
+}
+
+/**
+ 配置友盟推送
+ 
+ @param appKey 友盟appkey
+ @param launchOptions App launchOptions
+ */
+- (void)zx_configureUMessageWithAppKey:(NSString *)appKey launchOptions:(NSDictionary *)launchOptions {
     
     // 设置AppKey & LaunchOptions
     [UMessage startWithAppkey:appKey launchOptions:launchOptions];
@@ -126,11 +143,21 @@ static char UserInfoKey;
     [UMessage sendClickReportForRemoteNotification:[self zx_getUserInfo]];
 }
 
+/**
+ 给类别属性赋值
+ 
+ @param userInfo 推送消息字典
+ */
 - (void)zx_setUserInfo:(NSDictionary *)userInfo {
     
     objc_setAssociatedObject(self, &UserInfoKey, userInfo, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
+/**
+ 获取类别属性值
+ 
+ @return 暂存的推送消息
+ */
 - (NSDictionary *)zx_getUserInfo {
     
     if (objc_getAssociatedObject(self, &UserInfoKey)) {
