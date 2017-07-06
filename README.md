@@ -6,6 +6,7 @@
 
 当前已经完成友盟推送, 友盟分享, 友盟三方登录的部分
 
+
 结构
 ```objective-c
 ###AppDelegate + UMengPush --- 友盟推送
@@ -19,6 +20,7 @@
 首先在AppKey.h中设置好UMessageAppKey
 然后在AppDelegate.m中引入头文件AppDelegate+ UMengPush.h, 或者加入到PCH(推荐)
 在AppDelegate.m中一行代码完成集成
+
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 // Override point for customization after application launch.
@@ -34,9 +36,11 @@
 如果不需要集成某一个SDK, 可以将对应的appKey内容清空, 只保留@""
 
 友盟分享, 友盟登录
+
 首先在AppKey.h中设置好UMSocialAppKey 以及 需要继承的第三方平台秘钥
 然后在AppDelegate.m中引入头文件AppDelegate+ UMSocial.h, 或者加入到PCH(推荐)
-####在AppDelegate.m中一行代码完成集成
+
+在AppDelegate.m中一行代码完成集成
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -51,7 +55,9 @@
 Controller中的调用
 
 发起分享
+
 首先引入头文件AppDelegate.h, AppDelegate+ UMengPush.h, 或者加入到PCH(推荐)
+
 分享文字实例
 ```objective-c
 AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -69,7 +75,9 @@ if (success) {
 ```
 
 发起登录
+
 首先引入头文件AppDelegate.h, AppDelegate+ UMSocial, 或者加入到PCH(推荐)
+
 分享文字实例
 ```objective-c
 AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
