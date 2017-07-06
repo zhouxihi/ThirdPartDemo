@@ -9,9 +9,9 @@
 
 结构
 ```objective-c
-###AppDelegate + UMengPush --- 友盟推送
-###AppDelegate + UMSocial  --- 友盟分享, 友盟Sina/Wechat/QQ登录
-###AppDelegate + AppKey    --- 固定位置统一存在各平台秘钥
+AppDelegate + UMengPush --- 友盟推送
+AppDelegate + UMSocial  --- 友盟分享, 友盟Sina/Wechat/QQ登录
+AppDelegate + AppKey    --- 固定位置统一存在各平台秘钥
 ```
 
 使用方法
