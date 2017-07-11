@@ -73,12 +73,13 @@ if (success) {
 }
 }];
 ```
+还有其他分享文字+图片, 图片, 视频, 音乐, 网页, 微信小程序的方法, 请具体查看头文件, 使用方法一致
 
 发起登录
 
 首先引入头文件AppDelegate.h, AppDelegate+ UMSocial, 或者加入到PCH(推荐)
 
-分享文字实例
+获取Sina登录授权
 ```objective-c
 AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
@@ -109,4 +110,7 @@ if (success) {
     }
 }];
 ```
+拿到openid后再跟后台交互, 
+
+获取微信, QQ登录授权的方法, 请具体查看头文件, 使用方法一致
 
